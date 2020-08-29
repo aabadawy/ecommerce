@@ -44,7 +44,7 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <table
-                                            class="table display nowrap table-striped table-bordered ">
+                                            class="table display nowrap table-striped table-bordered scroll-horizontal">
                                             <thead>
                                             <tr>
                                                 <th> القسم</th>
@@ -62,7 +62,7 @@
                                                         <td>{{$maincategory -> name}}</td>
                                                         <td>{{get_default_language()}}</td>
                                                         <td>{{$maincategory -> active}}</td>
-                                                        <td>{{$maincategory -> photo}}</td>
+                                                        <td><img style = "width: 100px ; height: 100px;" src="{{$maincategory->photo}}" alt="{{$maincategory->name}}"></td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
@@ -72,6 +72,9 @@
 
                                                                 <a href="{{route('admin.maincategories.delete',$maincategory -> id)}}"
                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                                   
+                                                                <a href="/"
+                                                                   class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">تفعيل</a>
 
 
                                                             </div>

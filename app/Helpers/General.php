@@ -14,7 +14,7 @@ function get_default_language()
 function uploadImage($folder , $image)
 {
     $image->store('/', $folder);
-    $filename = $image->hasName();
-    $path = 'images/' . $folder . '/' . $filename ;
+    $filename = $image->hashName();
+    $path = 'assets/' . 'images/' . $folder . '/' . $filename ;
     return $path;
 }

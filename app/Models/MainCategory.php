@@ -16,6 +16,11 @@ class MainCategory extends Model
         return $val == 1 ? "مُفعل" : "غير مُفعل";
     }
     
+    public function getPhotoAttribute($val)
+    {
+        return ($val != null) ? asset($val) : "";
+    }
+    
     public function scopeActive($val)
     {
         return $val->where('active', 1);
@@ -23,6 +28,14 @@ class MainCategory extends Model
 
     public function scopeSelection($query)
     {
-        $query->select('id', 'translation_lang' ,'name', 'slug' , 'photo' , 'active');
+        $query->select('id', 'translation_lang' , 'translation_of' ,'name', 'slug' , 'photo' , 'active');
+    }
+
+
+    // Relations
+
+    public function categories()
+    {
+        return $this->hasMany(self::class, 'translation_of');
     }
 }
