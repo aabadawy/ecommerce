@@ -39,6 +39,17 @@ Route::group([ 'namespace'=>'Admin' ,'middleware' => 'auth:admin'] , function() 
         Route::get('/delete/{id}' ,'MainCategoryController@destroy')->name('admin.maincategories.delete');
     ################################ End Main Categories Routes #######################################
     });
+
+    ################################ Begin Vendors Routes #######################################
+    Route::group(['prefix' => 'vendors'], function(){
+        Route::get('/' , 'vendorsController@index')->name('admin.vendors');
+        Route::get('/create' , 'vendorsController@create')->name('admin.vendors.create');
+        Route::post('/store' , 'vendorsController@store')->name('admin.vendors.store');
+        Route::get('/edit/{id}' , 'vendorsController@edit')->name('admin.vendors.edit');
+        Route::post('/update/{id}' , 'vendorsController@update')->name('admin.vendors.update');
+        Route::get('/delete/{id}' ,'vendorsController@destroy')->name('admin.vendors.delete');
+    ################################ End Vendors Routes #######################################
+    });
 });
 
 

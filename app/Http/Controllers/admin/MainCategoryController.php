@@ -148,4 +148,11 @@ class MainCategoryController extends Controller
             DB::rollback();
             return redirect()->route('admin.maincategories')->with('error' , 'حدث خطأ أثناء التعديل، الرجاء المحاولة في وقت لاحق.');        }
     }
+
+    public function destroy($id)
+    {
+        $mainCategory = MainCategory::findOrFail($id);
+        $mainCategory->delete();
+        return redirect()->route('admin.maincategories')->with(['success' => 'تم الحذف بنجاح']);
+    }
 }
