@@ -16,10 +16,11 @@ class CreateVendorsTable extends Migration
         Schema::create('vendors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string("logo");
             $table->string('email');
             $table->string('mobile');
             $table->text('address');
-
+            $table->integer('active')->default(0);
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('main_categories');  
             
